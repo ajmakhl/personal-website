@@ -1,28 +1,10 @@
 import Head from "next/head";
 import ProfileBanner from "../components/ProfileBanner";
 import ThemeSwitch from "../components/ThemeSwitch";
-import useTheme from "../components/useTheme";
-import Cookies from "js-cookie";
 import cookie from "cookie";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 const Index = (props) => {
   const [theme, setTheme] = useState(props.initialTheme);
-  // const [load, setLoad] = useState(true);
-  // const [theme, setTheme, loading] = useTheme();
-  // useEffect(() => {
-  //   if (localStorage) {
-  //     setLoad(false);
-  //   }
-  // }, []);
-  // console.log(load);
-  // const styleBackgroundColor = () => {
-  //   if (theme === "light") {
-  //     return "#fefefe";
-  //   } else {
-  //     return "#090909";
-  //   }
-  // };
-  // console.log(loading);
   return (
     <div>
       <Head>
