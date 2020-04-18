@@ -1,45 +1,84 @@
 import Head from "next/head";
+import ProfileBanner from "../components/ProfileBanner";
+import ThemeSwitch from "../components/ThemeSwitch";
+import useTheme from "../components/useTheme";
+import Cookies from "js-cookie";
+import cookie from "cookie";
+import { useState, useEffect } from "react";
+const Index = (props) => {
+  const [theme, setTheme] = useState(props.initialTheme);
+  // const [load, setLoad] = useState(true);
+  // const [theme, setTheme, loading] = useTheme();
+  // useEffect(() => {
+  //   if (localStorage) {
+  //     setLoad(false);
+  //   }
+  // }, []);
+  // console.log(load);
+  // const styleBackgroundColor = () => {
+  //   if (theme === "light") {
+  //     return "#fefefe";
+  //   } else {
+  //     return "#090909";
+  //   }
+  // };
+  // console.log(loading);
+  return (
+    <div>
+      <Head>
+        <title>AJ Makhl - Web Developer</title>
+        <link rel="icon" href="/favicon.png" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap"
+          rel="stylesheet"
+        ></link>
+      </Head>
+      <main>
+        <ThemeSwitch theme={theme} setTheme={setTheme} />
+        <ProfileBanner theme={theme} />
+      </main>
 
-const Home = () => (
-  <div className="container">
-    <Head>
-      <title>AJ Makhl - Web Developer</title>
-      <link rel="icon" href="/favicon.png" />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap"
-        rel="stylesheet"
-      ></link>
-    </Head>
+      <style jsx>{`
+        main {
+          max-width: 1024px;
+          margin: 0 auto;
+          margin-top: 30px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      `}</style>
+      <style jsx global>{`
+        body {
+          background-color: ${theme === "dark" ? "#090909" : "#fefefe"};
+        }
+      `}</style>
+      <style jsx global>{`
+        html,
+        body {
+          padding: 0;
+          margin: 0;
+        }
+        * {
+          transition: 0.3s cubic-bezier(0.7, 0.7, 0.3, 1);
+          font-family: "Roboto", sans-serif;
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          outline: none;
+        }
+      `}</style>
+    </div>
+  );
+};
+const parseCookies = (req) => {
+  return cookie.parse(req ? req.headers.cookie || "" : document.cookie);
+};
+Index.getInitialProps = ({ req }) => {
+  const cookies = parseCookies(req);
+  return {
+    initialTheme: cookies.theme,
+  };
+};
 
-    <main>
-      <h3>Nothing here yet.</h3>
-    </main>
-
-    <style jsx>{`
-      main {
-        max-width: 1024px;
-        margin: 0 auto;
-      }
-      h3 {
-        margin-top: 30px;
-      }
-    `}</style>
-
-    <style jsx global>{`
-      html,
-      body {
-        padding: 0;
-        margin: 0;
-      }
-      * {
-        font-family: "Roboto", sans-serif;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        outline: none;
-      }
-    `}</style>
-  </div>
-);
-
-export default Home;
+export default Index;

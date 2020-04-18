@@ -4,4 +4,5 @@ Hello World.
 
 ## Roadmap
 
-- create a small banner to shortly describe myself.
+- [x] create theme mode with switch
+- [x] create small banner to shortly describe myself
