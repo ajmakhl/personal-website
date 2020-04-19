@@ -1,3 +1,4 @@
+import CompRepo from "./CompRepo";
 export default (props) => {
   const styles = () => {
     switch (props.theme) {
@@ -19,26 +20,33 @@ export default (props) => {
   };
   return (
     <div className="profile-banner-c">
-      <img src="/icon.svg" />
-      <div>
-        <h3>AJ Makhl</h3>
-        <p>I am just a guy who codes the web.</p>
-      </div>
+      <CompRepo link="https://github.com/ajmakhl/personal-website/blob/master/components/ProfileBanner.js">
+        <div className="profile-banner">
+          <img src="/icon.svg" />
+          <div>
+            <h3>AJ Makhl</h3>
+            <p>I am just a guy who codes the web.</p>
+          </div>
+        </div>
+      </CompRepo>
       <style jsx>{`
         .profile-banner-c {
-          display: flex;
-          align-items: center;
           width: 450px;
-          padding: 15px;
           margin: 10px;
           border-radius: 5px;
-          background-color: ${styles().backgroundColor};
-          border: 1px solid ${styles().border};
         }
         @media (max-width: 470px) {
           .profile-banner-c {
             width: calc(100% - 20px);
           }
+        }
+        .profile-banner {
+          display: flex;
+          align-items: center;
+          padding: 15px;
+          border-radius: 5px;
+          background-color: ${styles().backgroundColor};
+          border: 1px solid ${styles().border};
         }
         img {
           width: 50px;

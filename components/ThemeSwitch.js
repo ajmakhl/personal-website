@@ -1,4 +1,5 @@
 import Cookies from "js-cookie";
+import CompRepo from "./CompRepo";
 export default (props) => {
   const handleSwitch = () => {
     const currentTheme = props.theme === "dark" ? "light" : "dark";
@@ -20,14 +21,17 @@ export default (props) => {
   };
   return (
     <div className="theme-switch-w">
-      <div className="theme-switch-c" onClick={handleSwitch}>
-        <div className="theme-switch-i" />
-      </div>
+      <CompRepo link="https://github.com/ajmakhl/personal-website/blob/master/components/ThemeSwitch.js">
+        <div className="theme-switch-c" onClick={handleSwitch}>
+          <div className="theme-switch-i" />
+        </div>
+      </CompRepo>
       <style jsx>{`
         .theme-switch-w {
           width: 450px;
           display: flex;
           justify-content: flex-end;
+          border-radius: 25px;
         }
         @media (max-width: 470px) {
           .theme-switch-w {
@@ -42,8 +46,8 @@ export default (props) => {
           align-items: center;
           width: 50px;
           height: 25px;
-          padding: 1px;
           border-radius: 25px;
+          padding: 1px;
           background-color: ${props.theme === "dark" ? "#fefefe" : "#3f3f3f"};
         }
         .theme-switch-c:hover {
