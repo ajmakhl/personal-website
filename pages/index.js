@@ -32,7 +32,7 @@ const Index = (props) => {
       `}</style>
       <style jsx global>{`
         body {
-          background-color: ${theme === "dark" ? "#090909" : "#fefefe"};
+          background-color: ${theme === "dark" ? "#151515" : "#fefefe"};
         }
       `}</style>
       <style jsx global>{`
