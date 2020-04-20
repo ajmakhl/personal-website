@@ -13,10 +13,9 @@ export default (props) => {
           transition: 0.1s cubic-bezier(0.7, 0.7, 0.3, 1);
         }
         .comp-repo-c:hover {
-          box-shadow: 0 0 0 1.5px #0366d6;
         }
         .comp-repo-c:hover > .comp-repo-i {
-          display: flex;
+          display: block;
         }
         .comp-repo-i {
           cursor: pointer;

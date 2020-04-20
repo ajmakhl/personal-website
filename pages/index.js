@@ -1,6 +1,7 @@
 import Head from "next/head";
 import ProfileBanner from "../components/ProfileBanner";
 import ThemeSwitch from "../components/ThemeSwitch";
+import Showcase from "../components/Showcase";
 import cookie from "cookie";
 import { useState } from "react";
 const Index = (props) => {
@@ -18,6 +19,7 @@ const Index = (props) => {
       <main>
         <ThemeSwitch theme={theme} setTheme={setTheme} />
         <ProfileBanner theme={theme} />
+        <Showcase theme={theme} title="Web Development" />
       </main>
 
       <style jsx>{`
