@@ -1,4 +1,4 @@
-import CompRepo from "./CompRepo";
+import CompRepo from "./CompRepo"
 export default (props) => {
   const styles = () => {
     switch (props.theme) {
@@ -7,15 +7,15 @@ export default (props) => {
           backgroundColor: "#3f3f3f",
           border: "#5f5f5f",
           color: "#fefefe",
-        };
+        }
       default:
         return {
           backgroundColor: "#f7f7f7",
           border: "#e7e7e7",
           color: "#1f1f1f",
-        };
+        }
     }
-  };
+  }
   return (
     <div className="showcase-c">
       <CompRepo link="https://github.com/ajmakhl/personal-website/blob/master/components/Showcase.js">
@@ -26,11 +26,13 @@ export default (props) => {
               theme={props.theme}
               name="Notes"
               img="/notes-thumbnail.svg"
+              href="https://notes.ajmakhl.com/"
             />
             <SiteLink
               theme={props.theme}
               name="TIVISILI"
               img="/tivisili-thumbnail.svg"
+              href="https://tivisili.com/"
             />
           </div>
         </div>
@@ -68,8 +70,8 @@ export default (props) => {
         }
       `}</style>
     </div>
-  );
-};
+  )
+}
 const SiteLink = (props) => {
   const styles = () => {
     switch (props.theme) {
@@ -79,19 +81,19 @@ const SiteLink = (props) => {
           border: "#5f5f5f",
           color: "#fefefe",
           color2: "#d65403",
-        };
+        }
       default:
         return {
           backgroundColor: "#f7f7f7",
           border: "#e7e7e7",
           color: "#1f1f1f",
           color2: "#0366d6",
-        };
+        }
     }
-  };
+  }
   return (
     <div className="site-link-c">
-      <a className="site-link-a">
+      <a className="site-link-a" href={props.href}>
         <p>
           {`<`}
           <span>{props.name}</span>
@@ -141,5 +143,5 @@ const SiteLink = (props) => {
         }
       `}</style>
     </div>
-  );
-};
+  )
+}
